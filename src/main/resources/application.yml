@@ -1,11 +1,11 @@
 server:
-  port: ${SERVER_PORT:8888}
+  port: ${CONFIG_SERVER_PORT:8888}
 
 spring:
   application:
     name: config-server
   profiles:
-    active: ${PROFILE:native}
+    active: ${CONFIG_PROFILE:git}
   cloud:
     config:
       server:
@@ -13,7 +13,7 @@ spring:
           search-locations: file:/config
           # search-locations: file:////home/iitzrohan/config
         git:
-          uri: ${GIT_URI}
+          uri: ${CONFIG_GIT_URI}
           default-label: main
           clone-on-start: true
 
